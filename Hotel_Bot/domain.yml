@@ -1,0 +1,72 @@
+version: "3.1"
+
+intents:
+  - greet
+  - book_room
+  - inform_dates
+  - inform_guests
+  - inform_name
+  - inform_email
+  - inform_place
+  - select_hotel
+  - end_booking
+  - cancel_booking
+  - check_booking
+  - inform_booking_id
+
+entities:
+  - check_in_date
+  - check_out_date
+  - duration
+  - number_of_guests
+  - name
+  - email
+  - place
+  - hotel_name
+  - booking_id
+
+responses:
+  utter_greet:
+  - text: "Hi! Welcome to Come and Stay Hotel. How can I help you today?"
+
+  utter_ask_dates:
+  - text: "Sure! What dates would you like to stay with us?"
+
+  utter_ask_guests:
+  - text: "Got it! And how many guests will be staying?"
+
+  utter_ask_name:
+  - text: "Perfect! Could I have your full name to continue with the booking?"
+
+  utter_ask_email:
+  - text: "Great! And what's your email address for booking confirmation?"
+
+  utter_ask_place:
+  - text: "Thank you! And which place would you like to stay at?"
+
+  utter_ask_cancel_email:
+  - text: "To cancel your booking, please provide the email address you used for the reservation."
+
+  utter_ask_cancel_booking_id:
+  - text: "Please provide your booking ID for the reservation you want to cancel (for example: HTL-12345)."
+
+  utter_ask_booking_id:
+  - text: "Sure, please provide your booking ID (for example: HTL-12345)."
+
+  utter_booking_not_found:
+  - text: "I couldn't find any reservation with that booking ID. Could you double-check it?"
+
+  utter_end_booking:
+  - text: "B -> Thank you for choosing our hotel! We look forward to hosting you. Have a wonderful Day"
+
+  utter_cancel_booking:
+  - text: "Your booking has been cancelled successfully."
+
+  utter_cancel_booking_failed:
+  - text: "Sorry, we were unable to cancel your booking. Please try again or contact our support team."
+
+actions:
+  - action_search_hotels
+  - action_confirm_booking
+  - action_get_booking_info
+  - action_cancel_booking

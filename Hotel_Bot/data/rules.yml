@@ -1,0 +1,122 @@
+version: "3.1"
+
+rules:
+- rule: Say hello when user greets
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Handle booking request
+  steps:
+  - intent: book_room
+  - action: utter_ask_dates
+
+- rule: Handle dates provided
+  steps:
+  - action: utter_ask_dates
+  - intent: inform_dates
+  - action: utter_ask_guests
+
+- rule: Handle guests provided
+  steps:
+  - action: utter_ask_guests
+  - intent: inform_guests
+  - action: utter_ask_name
+
+- rule: Handle name provided
+  steps:
+  - action: utter_ask_name
+  - intent: inform_name
+  - action: utter_ask_email
+
+- rule: Handle name provided when misclassified as place
+  steps:
+  - action: utter_ask_name
+  - intent: inform_place
+  - action: utter_ask_email
+
+- rule: Handle email provided
+  steps:
+  - action: utter_ask_email
+  - intent: inform_email
+  - action: utter_ask_place
+
+- rule: Handle email provided when misclassified as name
+  steps:
+  - action: utter_ask_email
+  - intent: inform_name
+  - action: utter_ask_place
+
+- rule: Handle email provided when misclassified as place
+  steps:
+  - action: utter_ask_email
+  - intent: inform_place
+  - action: utter_ask_place
+
+- rule: Show hotels after user provides city
+  steps:
+  - action: utter_ask_place
+  - intent: inform_place
+  - action: action_search_hotels
+
+- rule: Handle place provided when misclassified as name
+  steps:
+  - action: utter_ask_place
+  - intent: inform_name
+  - action: action_search_hotels
+
+- rule: Handle place provided when misclassified as email
+  steps:
+  - action: utter_ask_place
+  - intent: inform_email
+  - action: action_search_hotels
+
+- rule: Handle hotel selection - confirm booking
+  steps:
+  - intent: select_hotel
+  - action: action_confirm_booking
+
+- rule: Handle end of booking when user says thank you
+  steps:
+  - action: action_confirm_booking
+  - intent: end_booking
+  - action: utter_end_booking
+
+- rule: Ask for booking ID when user wants reservation info
+  steps:
+  - intent: check_booking
+  - action: utter_ask_booking_id
+
+- rule: Get booking info after user provides booking ID
+  steps:
+  - action: utter_ask_booking_id
+  - intent: inform_booking_id
+  - action: action_get_booking_info
+
+- rule: Get booking info when user directly provides booking ID
+  steps:
+  - intent: inform_booking_id
+  - action: action_get_booking_info
+
+- rule: Handle cancel booking request
+  steps:
+  - intent: cancel_booking
+  - action: utter_ask_cancel_email
+
+- rule: Ask for cancellation booking ID after email
+  steps:
+  - action: utter_ask_cancel_email
+  - intent: inform_email
+  - action: utter_ask_cancel_booking_id
+
+- rule: Cancel booking after user provides booking ID
+  steps:
+  - action: utter_ask_cancel_booking_id
+  - intent: inform_booking_id
+  - action: action_cancel_booking
+
+- rule: Handle end of cancellation when user says thank you
+  steps:
+  - action: action_cancel_booking
+  - intent: end_booking
+  - action: utter_end_booking

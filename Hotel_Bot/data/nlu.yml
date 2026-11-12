@@ -1,0 +1,192 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hello
+    - Hey
+    - Hi there
+    - Hello there
+    - Hey there
+    - Good morning
+    - Good afternoon
+    - Good evening
+    - greetings
+    - hi
+    - hello
+    - hey
+
+- intent: book_room
+  examples: |
+    - I want to book a room
+    - I'd like to book a room
+    - I want to reserve a room
+    - I'd like to reserve a room
+    - Book a room
+    - Reserve a room
+    - I need a room
+    - I want to stay at your hotel
+    - I'd like to stay at your hotel
+
+- intent: inform_dates
+  examples: |
+    - [December 25th](check_in_date) to [December 28th](check_out_date)
+    - From [Jan 1](check_in_date) to [Jan 3](check_out_date)
+    - [2024-12-25](check_in_date) to [2024-12-28](check_out_date)
+    - I want to stay from [Monday](check_in_date) to [Wednesday](check_out_date)
+    - Check in [tomorrow](check_in_date) and check out [next week](check_out_date)
+    - [June 15](check_in_date) for [3 nights](duration)
+    - I need a room for [this weekend](check_in_date)
+    - From [today](check_in_date) to [Friday](check_out_date)
+
+- intent: inform_guests
+  examples: |
+    - [2](number_of_guests)
+    - [3](number_of_guests) guests
+    - [1](number_of_guests) person
+    - [4](number_of_guests) people
+    - Two guests
+    - Three people
+    - Just me
+    - [2](number_of_guests)
+    - [3](number_of_guests)
+    - [1](number_of_guests)
+    - [4](number_of_guests)
+    - from [2](number_of_guests)
+    - from [3](number_of_guests)
+    - from [1](number_of_guests)
+    - from [4](number_of_guests)
+    - for [2](number_of_guests)
+    - for [3](number_of_guests)
+    - for [1](number_of_guests)
+    - for [4](number_of_guests)
+    - for 2 guests
+    - for 3 people
+    - for 1 person
+    - for 4 people
+
+- intent: inform_name
+  examples: |
+    - My name is [John Doe](name)
+    - I'm [Jane Smith](name)
+    - [Michael Johnson](name)
+    - Call me [Sarah Williams](name)
+    - It's [David Brown](name)
+    - [Ankith](name)
+    - My name is [Ankith](name)
+    - I'm [John](name)
+    - [Sarah](name)
+    - Call me [Michael](name)
+    - It's [Jane](name)
+    - [David](name)
+
+- intent: inform_email
+  examples: |
+    - My email is [john.doe@gmail.com](email)
+    - [jane.smith@gmail.com](email)
+    - I can be reached at [michael.j@gmail.com](email)
+    - My email address is [sarah.w@gmail.com](email)
+    - [david.brown@gmail.com](email)
+    - [user@gmail.com](email)
+    - Contact me at [test.email@gmail.com](email)
+
+- intent: inform_place
+  examples: |
+    - I want to stay in [New York](place)
+    - [London](place)
+    - I'd like to stay in [Paris](place)
+    - [Tokyo](place)
+    - [Mumbai](place)
+    - I want to book in [Delhi](place)
+    - [Bangalore](place)
+    - [Chennai](place)
+    - [Hyderabad](place)
+    - I need a room in [Kolkata](place)
+    - [Pune](place)
+    - Stay in [Jaipur](place)
+    - [Ahmedabad](place)
+    - I prefer [Goa](place)
+    - [Dubai](place)
+    - [Singapore](place)
+    - [Bangkok](place)
+    - [Berlin](place)
+    - [Cologne](place)
+    - [cologne](place)
+    - [Munich](place)
+    - [munich](place)
+
+- intent: select_hotel
+  examples: |
+    - I want [Premier Inn Berlin Alexanderplatz](hotel_name)
+    - Book [Motel One Berlin‑Alexanderplatz](hotel_name)
+    - I'll take [MEININGER Hotel Berlin Mitte Humboldthaus](hotel_name)
+    - [Hotel Berlin, Berlin](hotel_name)
+    - I choose [Hampton by Hilton Berlin City Centre Alexanderplatz](hotel_name)
+    - I want [Motel One München Sendlinger Tor](hotel_name)
+    - Book [Arthotel Munich](hotel_name)
+    - I'll take [Hotel Am Moosfeld](hotel_name)
+    - I want [H2 Hotel München Olympiapark](hotel_name)
+    - I choose [THE 4YOU Hostel & Hotel Munich](hotel_name)
+    - The first one
+    - The second hotel
+    - I want the first option
+    - I'll go with the second one
+    - Book the third hotel
+    - I select the first hotel
+    - Choose the second option
+
+- intent: end_booking
+  examples: |
+    - Thank you
+    - thanks
+    - thank you so much
+    - nothing, thank you
+    - nothing else, thank you
+    - no, thank you
+    - that's all, thanks
+    - that's it, thank you
+    - no more help, thanks
+
+- intent: check_booking
+  examples: |
+    - I want to know my hotel reservation information
+    - I want to know my reservation information
+    - I want to know my booking details
+    - I want to know my reservation details
+    - I want to check my booking
+    - Show my booking details
+    - Show my reservation details
+    - Can you show my hotel booking?
+    - Can you show my reservation?
+
+- intent: inform_booking_id
+  examples: |
+    - My booking ID is [HTL-12345](booking_id)
+    - The reservation ID is [HTL-54321](booking_id)
+    - It is [HTL-00001](booking_id)
+    - [HTL-75282](booking_id)
+    - Here is my booking id [HTL-99999](booking_id)
+    - [HTL-58443](booking_id)
+
+- intent: cancel_booking
+  examples: |
+    - I want to cancel my booking
+    - I want to cancel my reservation
+    - Cancel my booking
+    - Cancel my reservation
+    - Please cancel my hotel booking
+    - I need to cancel my hotel reservation
+    - I need to cancel my booking
+    - Can I cancel my reservation?
+
+entities:
+- check_in_date
+- check_out_date
+- duration
+- number_of_guests
+- name
+- email
+- place
+- hotel_name
+- booking_id
